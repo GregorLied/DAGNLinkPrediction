@@ -46,7 +46,6 @@ def train(args, data):
         # skip the last incomplete minibatch if its size < batch size
         start, train_loss = 0, 0
         while start + args.batch_size <= len(train_data):
-            print(start, "of", len(train_data))
             model.train()
             optimizer.zero_grad()
             
