@@ -66,6 +66,6 @@ def get_adj(data):
     # Get Edge Index und Edge Type – Sorted makes sure that everything is coalesced
     edge_list = sorted(data, key=lambda x: (x[0], x[2], x[1]))
     edge = torch.tensor(edge_list, dtype=torch.long).t().contiguous()
-    edge_index, edge_type = torch.vstack([edge[0],edge[2]]), edge[1] 
+    edge_index, edge_type = torch.cat([edge[0],edge[2]], dim=1), edge[1] 
 
     return edge_index, edge_type
