@@ -7,7 +7,7 @@ from torch.optim.lr_scheduler import ExponentialLR
 
 def train(args, data):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print("Use device: ", device)
+    print("Use device:", device)
 
     # Load data
     n_entities, n_relations = data[0], data[1]

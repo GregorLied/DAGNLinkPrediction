@@ -287,7 +287,7 @@ class DAGNLinkPrediction(torch.nn.Module):
             norm = LayerNorm(self.dim, elementwise_affine=True)
             conv = DAGNConv(self.dim, self.heads, self.pow_iter, self.alpha, self.att_dropout, bias=False) 
             mlp = MLP([self.dim, self.hidden_dim, self.dim], dropout=self.feat_dropout, bias=False)
-            layer = DAGNLayer(norm, conv, mlp, self.feat_dropout, ckpt_grad=False) # layer%2
+            layer = DAGNLayer(norm, conv, mlp, self.feat_dropout, ckpt_grad=layer%2)
             self.layers.append(layer)
     
     def encode(self):
